@@ -1,0 +1,13 @@
+{
+  "name": "Danimarchizziamoci",
+  "short_name": "Danimarchizziamoci",
+  "description": "La guida e le posizioni aperte per trasferirsi in Danimarca",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FBF8F1",
+  "theme_color": "#0B2B3C",
+  "icons": [
+    { "src": "logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

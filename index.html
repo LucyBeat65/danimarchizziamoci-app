@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danimarchizziamoci</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="logo.png" alt="Danimarchizziamoci" class="topbar-logo">
+  <h1>Danimarchizziamoci</h1>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="guida">📖 Guida</button>
+  <button class="tab-btn" data-tab="lavoro">💼 Posizioni aperte</button>
+  <button class="tab-btn" data-tab="domanda">❓ Chiedi a Lucy</button>
+</nav>
+
+<main>
+  <!-- TAB GUIDA -->
+  <section id="tab-guida" class="tab-content active">
+    <div id="intro-block" class="card"></div>
+
+    <div class="card">
+      <h3>✅ Checklist rapida: i primi passi</h3>
+      <p class="checklist-intro">Gratis, sempre — spunta ogni punto man mano che lo fai,
+      l'app se lo ricorda.</p>
+      <div id="checklist"></div>
+    </div>
+
+    <div id="steps-list"></div>
+
+    <div id="unlock-banner" class="unlock-banner">
+      <p><strong>Hai letto l'anteprima gratuita.</strong><br>
+      Sblocca tutta la guida (48 step: aziende, CV, contratti, tasse, sanità, scuola,
+      trasporti e molto altro) con un pagamento unico.</p>
+      <button class="btn-primary" id="btn-unlock-guide">Sblocca tutta la guida — 20€</button>
+    </div>
+  </section>
+
+  <!-- TAB LAVORO -->
+  <section id="tab-lavoro" class="tab-content">
+    <div class="card">
+      <h3>Posizioni aperte, verificate una per una</h3>
+      <p>Ogni settimana cerchiamo e verifichiamo personalmente nuove posizioni aperte in
+      Danimarca — link diretti, non ricerche generiche. Qui sotto un'anteprima gratuita;
+      il pacchetto completo contiene 10 posizioni verificate.</p>
+    </div>
+
+    <div id="jobs-preview"></div>
+
+    <div class="unlock-banner">
+      <p><strong>Vuoi tutte le 10 posizioni di questa settimana?</strong></p>
+      <button class="btn-primary" id="btn-unlock-jobs">Sblocca il pacchetto — 7€</button>
+      <p class="fine-print">Posizioni verificate al momento della pubblicazione. Come su
+      qualsiasi bacheca di lavoro, può capitare che qualcuna chiuda nel frattempo — in tal
+      caso scrivici e ti troviamo una sostituzione.</p>
+    </div>
+  </section>
+
+  <!-- TAB DOMANDA (Q&A a pagamento) -->
+  <section id="tab-domanda" class="tab-content">
+    <div class="card">
+      <h3>Hai un dubbio specifico sul tuo caso?</h3>
+      <p>Scrivimi una domanda mirata sulla tua situazione (lavoro, documenti, casa,
+      tasse, scuola dei figli...) e ti rispondo personalmente — via email, con un
+      messaggio vocale o un breve PDF, di solito entro 48 ore lavorative (giorni
+      feriali).</p>
+      <p class="checklist-intro">Non è una consulenza legale o fiscale professionale:
+      è un consiglio pratico basato sulla mia esperienza diretta in Danimarca.</p>
+    </div>
+
+    <div class="unlock-banner">
+      <p><strong>Una domanda, una risposta personale.</strong></p>
+      <a class="btn-primary" id="btn-ask-question" href="#" role="button">Fai una domanda — 5€</a>
+      <p class="fine-print">Dopo il pagamento potrai scrivere la tua domanda nella
+      pagina di checkout. Riceverai la risposta all'email usata per pagare.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Danimarchizziamoci · Per assistenza: <a href="mailto:info@danimarchizziamoci.eu">info@danimarchizziamoci.eu</a></p>
+</footer>
+
+<!-- Modale per contenuto sbloccato (demo) -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
