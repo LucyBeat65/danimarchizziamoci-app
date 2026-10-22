@@ -2890,7 +2890,14 @@ const STEPS = [
       <p>Management</p>
       <p>IG e TikTok: @iconelle.it</p>
     ` },
+  { n: 51, free: false, title: 'Aziende internazionali che assumono in inglese', teaser: 'Elenco di aziende che lavorano in inglese in Danimarca, divise per settore, con città e link diretto alla pagina "lavora con noi" di ognuna.',
+    html: `
+      <p>Un elenco di aziende che lavorano abitualmente in inglese in Danimarca, divise per settore: hotel e ospitalità, negozi, IT, grandi multinazionali, ingegneria e industria, logistica.</p>
+      <p>Per ognuna trovi la città o la sede e il link diretto alla pagina "lavora con noi" ufficiale. A differenza di un singolo annuncio, la pagina di un'azienda non scade: mostra sempre le posizioni aperte in quel momento.</p>
+      <p><a class="btn-primary" href="viewer.html?f=Aziende_Internazionali_Danimarca.pdf">📄 Apri l'elenco delle aziende</a></p>
+    ` },
 ];
+
 
 // Esempio di posizioni aperte (dati reali di esempio — da aggiornare settimanalmente)
 const SAMPLE_JOBS = [
@@ -2901,6 +2908,11 @@ const SAMPLE_JOBS = [
 ];
 
 // Risorse gratuite (scheda "Gratis"): PDF caricati accanto a index.html
+// Documenti della parte a pagamento aperti nel visualizzatore (titolo + scheda a cui tornare)
+const PAID_DOCS = [
+  { file: "Aziende_Internazionali_Danimarca.pdf", title: "Aziende internazionali che assumono in inglese" },
+];
+
 const FREE_RESOURCES = [
   { file: "Cosa_Nessuno_ti_Dice_Danimarca.pdf", icon: "🇩🇰",
     title: "Cosa nessuno ti dice sulla Danimarca",

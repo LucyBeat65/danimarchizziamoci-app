@@ -37,10 +37,21 @@
 (function () {
   const container = document.getElementById('pages');
   const file = new URLSearchParams(location.search).get('f') || '';
-  const res = FREE_RESOURCES.find(r => r.file === file);
+  const free = FREE_RESOURCES.find(r => r.file === file);
+  const paid = PAID_DOCS.find(r => r.file === file);
+  const res = free || paid;
   const info = PDF_PAGES[file];
+  const backHref = free ? 'index.html#gratis' : 'index.html#guida';
+  document.querySelector('.viewer-back').href = backHref;
   if (!res || !info) {
     container.innerHTML = '<p class="viewer-msg">Documento non trovato.</p>';
+    return;
+  }
+  let unlocked = false;
+  try { unlocked = localStorage.getItem('dk_guide_unlocked') === 'true'; } catch (e) {}
+  if (paid && !unlocked) {
+    container.innerHTML = '<p class="viewer-msg">🔒 Questo contenuto fa parte della guida completa.<br><br>' +
+      '<a class="btn-primary" href="index.html#guida">Torna alla guida</a></p>';
     return;
   }
   document.getElementById('viewer-title').textContent = res.title;
@@ -54,7 +65,7 @@
     html += `<div class="pdf-page"><img src="${encodeURI(base)}-${n}.jpg"
       alt="${res.title.replace(/"/g, '&quot;')} — pagina ${n}" loading="${n <= 2 ? 'eager' : 'lazy'}">${links}</div>`;
   }
-  html += '<div class="viewer-end"><a class="btn-primary" href="index.html#gratis">← Torna all\'app</a></div>';
+  html += `<div class="viewer-end"><a class="btn-primary" href="${backHref}">← Torna all'app</a></div>`;
   container.innerHTML = html;
 })();
 </script>
