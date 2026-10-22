@@ -156,7 +156,7 @@ function renderGuidePrice() {
 function renderResources() {
   const el = document.getElementById('resources-list');
   el.innerHTML = FREE_RESOURCES.map(r => `
-    <a class="resource-card" href="${encodeURI(r.file)}" target="_blank" rel="noopener">
+    <a class="resource-card" href="viewer.html?f=${encodeURIComponent(r.file)}">
       <span class="resource-icon">${r.icon}</span>
       <span>
         <span class="resource-title">${escapeHtml(r.title)}</span>
@@ -181,14 +181,19 @@ function renderJobs() {
 }
 
 function setupTabs() {
+  const show = (name) => {
+    const btn = document.querySelector(`.tab-btn[data-tab="${name}"]`);
+    if (!btn) return;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  };
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-    });
+    btn.addEventListener('click', () => show(btn.dataset.tab));
   });
+  // Ritorno dal visualizzatore PDF (index.html#gratis): riapri la scheda giusta
+  if (location.hash) show(location.hash.slice(1));
 }
 
 function setupModal() {

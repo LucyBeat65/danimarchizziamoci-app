@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danimarchizziamoci</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { padding-bottom: 0; }
+  .viewer-bar { justify-content: space-between; }
+  .viewer-back { color: white; text-decoration: none; font-weight: 700; font-size: 1rem;
+    padding: 8px 12px; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; white-space: nowrap; }
+  .viewer-title { font-size: 0.9rem; font-weight: 600; text-align: right; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap; }
+  #pages { max-width: 800px; margin: 0 auto; padding: 12px; }
+  .pdf-page { position: relative; margin-bottom: 12px; background: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15); border-radius: 4px; overflow: hidden; }
+  .pdf-page img { display: block; width: 100%; height: auto; }
+  .pdf-link { position: absolute; display: block; }
+  .viewer-msg { text-align: center; color: var(--grey); padding: 40px 16px; }
+  .viewer-end { text-align: center; padding: 8px 0 28px; }
+</style>
+</head>
+<body>
+
+<header class="topbar viewer-bar">
+  <a class="viewer-back" href="index.html#gratis">← Torna all'app</a>
+  <span class="viewer-title" id="viewer-title"></span>
+</header>
+
+<div id="pages"></div>
+
+<script src="content.js"></script>
+<script src="pdf_pages.js"></script>
+<script>
+(function () {
+  const container = document.getElementById('pages');
+  const file = new URLSearchParams(location.search).get('f') || '';
+  const res = FREE_RESOURCES.find(r => r.file === file);
+  const info = PDF_PAGES[file];
+  if (!res || !info) {
+    container.innerHTML = '<p class="viewer-msg">Documento non trovato.</p>';
+    return;
+  }
+  document.getElementById('viewer-title').textContent = res.title;
+  document.title = res.title + ' · Danimarchizziamoci';
+  const base = file.replace(/\.pdf$/, '');
+  let html = '';
+  for (let n = 1; n <= info.pages; n++) {
+    const links = info.links.filter(l => l[0] === n).map(l =>
+      `<a class="pdf-link" href="${l[5].replace(/"/g, '&quot;')}" target="_blank" rel="noopener"
+          style="left:${l[1]}%;top:${l[2]}%;width:${l[3]}%;height:${l[4]}%"></a>`).join('');
+    html += `<div class="pdf-page"><img src="${encodeURI(base)}-${n}.jpg"
+      alt="${res.title.replace(/"/g, '&quot;')} — pagina ${n}" loading="${n <= 2 ? 'eager' : 'lazy'}">${links}</div>`;
+  }
+  html += '<div class="viewer-end"><a class="btn-primary" href="index.html#gratis">← Torna all\'app</a></div>';
+  container.innerHTML = html;
+})();
+</script>
+</body>
+</html>
