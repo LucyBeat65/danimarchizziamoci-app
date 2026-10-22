@@ -17,6 +17,7 @@
 
 <nav class="tabs">
   <button class="tab-btn active" data-tab="guida">📖 Guida</button>
+  <button class="tab-btn" data-tab="gratis">🎁 Gratis</button>
   <button class="tab-btn" data-tab="lavoro">💼 Posizioni aperte</button>
   <button class="tab-btn" data-tab="domanda">❓ Chiedi a Lucy</button>
 </nav>
@@ -39,27 +40,38 @@
       <p><strong>Hai letto l'anteprima gratuita.</strong><br>
       Sblocca tutta la guida (48 step: aziende, CV, contratti, tasse, sanità, scuola,
       trasporti e molto altro) con un pagamento unico.</p>
-      <button class="btn-primary" id="btn-unlock-guide">Sblocca tutta la guida — 20€</button>
+      <button class="btn-primary" id="btn-unlock-guide">Sblocca tutta la guida — <span class="guide-price">20€</span></button>
     </div>
+  </section>
+
+  <!-- TAB GRATIS (PDF scaricabili) -->
+  <section id="tab-gratis" class="tab-content">
+    <div class="card">
+      <h3>🎁 Risorse gratuite</h3>
+      <p>Guide pratiche da scaricare, leggere con calma e tenere sul telefono.
+      Gratis, per tutti.</p>
+    </div>
+    <div id="resources-list"></div>
   </section>
 
   <!-- TAB LAVORO -->
   <section id="tab-lavoro" class="tab-content">
     <div class="card">
-      <h3>Posizioni aperte, verificate una per una</h3>
-      <p>Ogni settimana cerchiamo e verifichiamo personalmente nuove posizioni aperte in
-      Danimarca — link diretti, non ricerche generiche. Qui sotto un'anteprima gratuita;
-      il pacchetto completo contiene 10 posizioni verificate.</p>
+      <h3>Posizioni di lavoro su misura per te</h3>
+      <p>Dicci in che settore o ruolo cerchi lavoro, e cerchiamo e verifichiamo personalmente
+      10 posizioni aperte in Danimarca per il tuo profilo — link diretti, non una lista
+      generica uguale per tutti. Qui sotto un esempio del formato.</p>
     </div>
 
     <div id="jobs-preview"></div>
 
     <div class="unlock-banner">
-      <p><strong>Vuoi tutte le 10 posizioni di questa settimana?</strong></p>
-      <button class="btn-primary" id="btn-unlock-jobs">Sblocca il pacchetto — 7€</button>
-      <p class="fine-print">Posizioni verificate al momento della pubblicazione. Come su
-      qualsiasi bacheca di lavoro, può capitare che qualcuna chiuda nel frattempo — in tal
-      caso scrivici e ti troviamo una sostituzione.</p>
+      <p><strong>Vuoi 10 posizioni aperte nel tuo settore?</strong></p>
+      <button class="btn-primary" id="btn-unlock-jobs">Richiedi il tuo pacchetto — 7€</button>
+      <p class="fine-print">Dopo il pagamento, scrivi nel campo della pagina di checkout il
+      settore o ruolo che cerchi. Riceverai le 10 posizioni verificate via email, di solito
+      entro 48 ore lavorative. Come su qualsiasi bacheca di lavoro, può capitare che qualche
+      posizione chiuda nel frattempo — in tal caso scrivici e ti troviamo una sostituzione.</p>
     </div>
   </section>
 
@@ -79,7 +91,9 @@
       <p><strong>Una domanda, una risposta personale.</strong></p>
       <a class="btn-primary" id="btn-ask-question" href="#" role="button">Fai una domanda — 5€</a>
       <p class="fine-print">Dopo il pagamento potrai scrivere la tua domanda nella
-      pagina di checkout. Riceverai la risposta all'email usata per pagare.</p>
+      pagina di checkout (massimo 255 caratteri, quindi scrivila in breve — se
+      serve più contesto te lo chiedo poi via email). Riceverai la risposta
+      all'email usata per pagare.</p>
     </div>
   </section>
 </main>

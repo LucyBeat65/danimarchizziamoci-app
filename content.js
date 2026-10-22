@@ -1435,14 +1435,13 @@ const STEPS = [
       <ul><li>Metti in conto che trovare casa a Copenaghen è molto difficile –</li></ul>
       <p>valuta città come Odense, Aarhus o Aalborg se cerchi più tranquillità e meno concorrenza.</p>
     ` },
-  { n: 20, free: false, title: 'Video Testimonianze Università', teaser: 'Testimonianze di giovani universitari in Danimarca Lara Biancalana racconta la sua esperienza ❤️ Clicca qui 👇🏻 Giuseppe ci racconta la sua…',
+  { n: 20, free: false, title: 'Video Testimonianze Università', teaser: 'Testimonianze di giovani universitari in Danimarca Lara Biancalana racconta la sua esperienza ❤️ Giuseppe ci racconta la sua esperienza universitaria…',
     html: `
       <p>Testimonianze di giovani universitari in Danimarca</p>
       <p>Lara Biancalana racconta la sua esperienza ❤️</p>
-      <p>Clicca qui 👇🏻</p>
-      <p>Giuseppe ci racconta la sua esperienza universitaria presso la SDU di Esbjerg e di Odense clicca qui👇🏻</p>
-      <p>Giuseppe</p>
-      <p>Odense</p>
+      <p>▶️ <a href="https://youtu.be/g4dqD2O3vUQ" target="_blank" rel="noopener">Studentessa alla Royal Danish Academy of Music (Accademia Reale Danese di Musica): Lara Biancalana</a></p>
+      <p>Giuseppe ci racconta la sua esperienza universitaria presso la SDU di Esbjerg e di Odense 👇🏻</p>
+      <p>▶️ <a href="https://youtu.be/t6bggu34BWs" target="_blank" rel="noopener">Giuseppe si racconta: la mia esperienza alla SDU di Esbjerg e Odense</a></p>
     ` },
   { n: 21, free: false, title: 'SU — Sussidio per gli studenti', teaser: '(e nuove regole), requisiti e come ottenerlo Novità per gli studenti in Danimarca (2026-2027) Negli ultimi anni la Danimarca ha introdotto…',
     html: `
@@ -2836,7 +2835,13 @@ const STEPS = [
       <p>Di seguito il video di Mario, un bravissimo ragazzo, primo dei miei</p>
       <p>“danimarchizzati”.</p>
       <p>Racconta brevemente la sua bella avventura in questo Paese 🇩🇰</p>
+      <p>▶️ <a href="https://youtu.be/nKPLfcyRYyg" target="_blank" rel="noopener">Mario Cozzi, scultore italiano, felice della sua scelta</a></p>
       <p>La storia di Chiara non è altrettanto positiva, ma non ha comunque smesso di sognare la Danimarca 🇩🇰😍</p>
+      <p>▶️ <a href="https://youtu.be/a7xcF7gWnFc" target="_blank" rel="noopener">Chiara racconta la sua esperienza</a></p>
+      <p>Giuseppe ci porta invece nel mondo universitario danese: la sua esperienza alla SDU (University of Southern Denmark), tra Esbjerg e Odense 🎓</p>
+      <p>▶️ <a href="https://youtu.be/t6bggu34BWs" target="_blank" rel="noopener">Giuseppe si racconta: la mia esperienza alla SDU di Esbjerg e Odense</a></p>
+      <p>E infine Lara, che ha scelto Copenaghen per studiare musica alla Royal Danish Academy of Music, l’Accademia Reale Danese di Musica 🎶</p>
+      <p>▶️ <a href="https://youtu.be/g4dqD2O3vUQ" target="_blank" rel="noopener">Studentessa alla Royal Danish Academy of Music (Accademia Reale Danese di Musica): Lara Biancalana</a></p>
     ` },
   { n: 49, free: false, title: 'Ristoranti italiani in Danimarca', teaser: '(i vostri consigli) Copenaghen: Il Mattarello (Nørreport) Parma e Pasta (Lyngby) Italgastro (Nørreport) Divina Pizza &amp; Birra Da Fabio…',
     html: `
@@ -2889,8 +2894,30 @@ const STEPS = [
 
 // Esempio di posizioni aperte (dati reali di esempio — da aggiornare settimanalmente)
 const SAMPLE_JOBS = [
-  { role: "Kok (cuoco/a)", city: "Copenaghen", status: "Verificato attivo" },
-  { role: "IT Supporter", city: "Odense", status: "Verificato attivo" },
-  { role: "Housekeeper — Scandic Sydhavnen", city: "Copenaghen", status: "Verificato attivo" },
-  { role: "Maler (pittore edile)", city: "Frederiksberg C", status: "Verificato attivo" },
+  { role: "Kok (cuoco/a)", city: "Copenaghen", status: "Esempio" },
+  { role: "IT Supporter", city: "Odense", status: "Esempio" },
+  { role: "Housekeeper — Scandic Sydhavnen", city: "Copenaghen", status: "Esempio" },
+  { role: "Maler (pittore edile)", city: "Frederiksberg C", status: "Esempio" },
+];
+
+// Risorse gratuite (scheda "Gratis"): PDF caricati accanto a index.html
+const FREE_RESOURCES = [
+  { file: "Cosa_Nessuno_ti_Dice_Danimarca.pdf", icon: "🇩🇰",
+    title: "Cosa nessuno ti dice sulla Danimarca",
+    desc: "Cosa non piace ai danesi, cosa odiano, a cosa fanno attenzione e cosa si aspettano da chi arriva." },
+  { file: "Costo_della_Vita_Italia_vs_Danimarca.pdf", icon: "💶",
+    title: "Quanto costa vivere in Danimarca?",
+    desc: "Confronto con l'Italia, numeri alla mano: affitto, spesa, bollette, trasporti." },
+  { file: "Scheda_Sopravvivenza_Danimarca.pdf", icon: "🆘",
+    title: "Scheda di sopravvivenza",
+    desc: "Numeri di emergenza, 10 frasi in danese che ti salvano e cosa fare se ti serve aiuto." },
+  { file: "Muoversi_in_Danimarca_Guida_pratica.pdf", icon: "🚆",
+    title: "Muoversi in Danimarca",
+    desc: "Treni, bus, metro e Rejsekort: come spostarsi e quali app usare." },
+  { file: "Fleksjob_in_Danimarca_Guida_pratica.pdf", icon: "🤝",
+    title: "Il Fleksjob in Danimarca",
+    desc: "Cos'è, chi può averlo e come funziona la richiesta al Comune." },
+  { file: "Trasferirsi_in_Danimarca_da_Pensionato.pdf", icon: "🌅",
+    title: "Trasferirsi in Danimarca da pensionato",
+    desc: "Residenza, sanità, pensione e tasse per chi arriva senza lavorare." },
 ];

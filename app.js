@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderChecklist();
   renderSteps();
   renderJobs();
+  renderResources();
+  renderGuidePrice();
   setupTabs();
   setupModal();
   setupUnlockButtons();
@@ -133,10 +135,36 @@ function renderSteps() {
       openModal(`
         <h3>🔒 ${card.dataset.title}</h3>
         <p>${card.dataset.teaser || 'Contenuto disponibile sbloccando tutta la guida.'}</p>
-        <button class="btn-primary" onclick="document.getElementById('btn-unlock-guide').click()">Sblocca tutta la guida — 20€</button>
+        <button class="btn-primary" onclick="document.getElementById('btn-unlock-guide').click()">Sblocca tutta la guida — ${guidePriceLabel()}</button>
       `);
     });
   });
+}
+
+// Promo di lancio: 17€ fino al 29/10/2026 compreso, poi 20€ in automatico.
+// Il prezzo su Stripe va cambiato a mano lo stesso giorno (30/10).
+const PROMO_END = new Date(2026, 9, 30);
+
+function guidePriceLabel() {
+  return new Date() < PROMO_END ? '17€ <s>20€</s>' : '20€';
+}
+
+function renderGuidePrice() {
+  document.querySelectorAll('.guide-price').forEach(el => { el.innerHTML = guidePriceLabel(); });
+}
+
+function renderResources() {
+  const el = document.getElementById('resources-list');
+  el.innerHTML = FREE_RESOURCES.map(r => `
+    <a class="resource-card" href="${encodeURI(r.file)}" target="_blank" rel="noopener">
+      <span class="resource-icon">${r.icon}</span>
+      <span>
+        <span class="resource-title">${escapeHtml(r.title)}</span>
+        <span class="resource-desc">${escapeHtml(r.desc)}</span>
+      </span>
+      <span class="resource-open">PDF ↗</span>
+    </a>
+  `).join('');
 }
 
 function renderJobs() {

@@ -140,6 +140,24 @@ main { max-width: 680px; margin: 0 auto; padding: 16px; }
 .job-card .job-city { color: var(--grey); font-size: 0.88rem; }
 .job-card .job-status { font-size: 0.78rem; color: #0B7A3E; font-weight: 600; }
 
+.resource-card {
+  background: var(--card-bg);
+  border: 1px solid #E4DCC8;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.resource-card:hover { border-color: var(--gold); }
+.resource-icon { font-size: 1.6rem; flex-shrink: 0; }
+.resource-title { display: block; font-weight: 600; color: var(--navy); }
+.resource-desc { display: block; color: var(--grey); font-size: 0.88rem; margin-top: 2px; line-height: 1.4; }
+.resource-open { margin-left: auto; color: var(--gold); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+
 footer {
   text-align: center;
   color: var(--grey);
@@ -159,4 +177,5 @@ footer a { color: var(--navy); }
 
 @media (max-width: 480px) {
   .topbar h1 { font-size: 1.05rem; }
+  .tab-btn { padding: 10px 4px; font-size: 0.8rem; }
 }
