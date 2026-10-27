@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danimarchizziamoci</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="logo.png" alt="Danimarchizziamoci" class="topbar-logo">
+  <h1>Danimarchizziamoci</h1>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="guida">📖 Guida</button>
+  <button class="tab-btn" data-tab="gratis">🎁 Gratis</button>
+  <button class="tab-btn" data-tab="lavoro">💼 Posizioni aperte</button>
+  <button class="tab-btn" data-tab="domanda">❓ Chiedi a Lucy</button>
+</nav>
+
+<main>
+  <!-- TAB GUIDA -->
+  <section id="tab-guida" class="tab-content active">
+    <div id="intro-block" class="card"></div>
+
+    <div class="card">
+      <h3>✅ Checklist rapida: i primi passi</h3>
+      <p class="checklist-intro">Gratis, sempre — spunta ogni punto man mano che lo fai,
+      l'app se lo ricorda.</p>
+      <div id="checklist"></div>
+    </div>
+
+    <div id="steps-list"></div>
+
+    <div id="old-unlock-note" class="card" style="display:none">
+      <p><strong>Abbiamo aggiornato l'app.</strong> Se avevi già acquistato la guida, scrivimi a
+      <a href="mailto:danimarchizziamoci@gmail.com">danimarchizziamoci@gmail.com</a> con la ricevuta:
+      ti mando subito il nuovo link per sbloccarla.</p>
+    </div>
+
+    <div id="unlock-banner" class="unlock-banner">
+      <p><strong>Hai letto l'anteprima gratuita.</strong><br>
+      Sblocca tutta la guida (49 step: aziende, CV, contratti, tasse, sanità, scuola,
+      trasporti e molto altro) con un pagamento unico.</p>
+      <button class="btn-primary" id="btn-unlock-guide">Sblocca tutta la guida — <span class="guide-price">20€</span></button>
+      <p class="fine-print">Acquistando, accetti di ricevere subito l'accesso alla guida e rinunci
+      al diritto di recesso di 14 giorni. Se dopo il pagamento la guida non si sblocca, scrivimi a
+      <a href="mailto:danimarchizziamoci@gmail.com" style="color:inherit">danimarchizziamoci@gmail.com</a>
+      con la ricevuta e la sblocco io per te.</p>
+    </div>
+  </section>
+
+  <!-- TAB GRATIS (PDF scaricabili) -->
+  <section id="tab-gratis" class="tab-content">
+    <div class="card">
+      <h3>🎁 Risorse gratuite</h3>
+      <p>Guide pratiche da scaricare, leggere con calma e tenere sul telefono.
+      Gratis, per tutti.</p>
+    </div>
+    <div id="resources-list"></div>
+  </section>
+
+  <!-- TAB LAVORO -->
+  <section id="tab-lavoro" class="tab-content">
+    <div class="card">
+      <h3>Posizioni di lavoro su misura per te</h3>
+      <p>Dicci in che settore o ruolo cerchi lavoro, e cerchiamo e verifichiamo personalmente
+      10 posizioni aperte in Danimarca per il tuo profilo — link diretti, non una lista
+      generica uguale per tutti. Qui sotto un esempio del formato.</p>
+    </div>
+
+    <div id="jobs-preview"></div>
+
+    <div class="unlock-banner">
+      <p><strong>Vuoi 10 posizioni aperte nel tuo settore?</strong></p>
+      <button class="btn-primary" id="btn-unlock-jobs">Richiedi il tuo pacchetto — 7€</button>
+      <p class="fine-print">Dopo il pagamento, scrivi nel campo della pagina di checkout il
+      settore o ruolo che cerchi. Riceverai le 10 posizioni verificate via email, di solito
+      entro 48 ore lavorative. Come su qualsiasi bacheca di lavoro, può capitare che qualche
+      posizione chiuda nel frattempo — in tal caso scrivici e ti troviamo una sostituzione.</p>
+    </div>
+  </section>
+
+  <!-- TAB DOMANDA (Q&A a pagamento) -->
+  <section id="tab-domanda" class="tab-content">
+    <div class="card">
+      <h3>Hai un dubbio specifico sul tuo caso?</h3>
+      <p>Scrivimi una domanda mirata sulla tua situazione (lavoro, documenti, casa,
+      tasse, scuola dei figli...) e ti rispondo personalmente — via email, con un
+      messaggio vocale o un breve PDF, di solito entro 48 ore lavorative (giorni
+      feriali).</p>
+      <p class="checklist-intro">Non è una consulenza legale o fiscale professionale:
+      è un consiglio pratico basato sulla mia esperienza diretta in Danimarca.</p>
+    </div>
+
+    <div class="unlock-banner">
+      <p><strong>Una domanda, una risposta personale.</strong></p>
+      <a class="btn-primary" id="btn-ask-question" href="#" role="button">Fai una domanda — 5€</a>
+      <p class="fine-print">Dopo il pagamento potrai scrivere la tua domanda nella
+      pagina di checkout (massimo 255 caratteri, quindi scrivila in breve — se
+      serve più contesto te lo chiedo poi via email). Riceverai la risposta
+      all'email usata per pagare.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Danimarchizziamoci · Per assistenza: <a href="mailto:danimarchizziamoci@gmail.com">danimarchizziamoci@gmail.com</a></p>
+</footer>
+
+<!-- Modale per contenuto sbloccato (demo) -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="content.js"></script>
+<script src="guide_crypto.js"></script>
+<script src="app.js"></script>
+
+<!-- Contatore visite (GoatCounter, senza cookie). Registra solo il nome della pagina, mai i parametri
+     dell'indirizzo: il link di sblocco della guida contiene una chiave privata. -->
+<script>
+  window.goatcounter = {
+    path: function () {
+      const installed = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      return (installed ? '/[da icona] ' : '/') + 'app';
+    }
+  };
+</script>
+<script data-goatcounter="https://danimarchizziamoci.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
