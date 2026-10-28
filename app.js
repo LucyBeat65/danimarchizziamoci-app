@@ -7,6 +7,7 @@ const GUIDE_PAYMENT_LINK_URL = 'https://buy.stripe.com/fZu28r8q7cYBgvB6Qacwg00';
 const JOBS_PAYMENT_LINK_URL = 'https://buy.stripe.com/bJeaEXgWDe2F0wD4I2cwg01';
 
 let GUIDE_KEY = null; // CryptoKey valida se la guida è sbloccata su questo dispositivo
+let JUST_UNLOCKED = false; // true solo alla prima apertura dopo il pagamento: mostra il benvenuto
 
 async function checkPurchaseRedirect() {
   try {
@@ -15,6 +16,7 @@ async function checkPurchaseRedirect() {
     if (purchase === 'guide') {
       const hex = params.get('k') || '';
       if (await validGuideKey(hex)) {
+        JUST_UNLOCKED = loadGuideKeyHex() !== hex.toLowerCase();
         try { localStorage.setItem(GUIDE_KEY_STORAGE, hex.toLowerCase()); } catch (e) { /* storage non disponibile */ }
       }
     }
@@ -41,7 +43,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupModal();
   setupUnlockButtons();
   setupQA();
+  if (JUST_UNLOCKED) showWelcome();
 });
+
+// Benvenuto automatico dopo l'acquisto: il ringraziamento è per aver scelto l'app.
+function showWelcome() {
+  openModal(`
+    <h3>🎉 Benvenuto nell'app di Danimarchizziamoci!</h3>
+    <p>Grazie di cuore per aver scelto l'app e per aver sbloccato la guida completa. ❤️</p>
+    <p>Ora hai tutto a portata di mano: la guida passo dopo passo per trasferirti in Danimarca,
+    le risorse gratuite che aggiorno di continuo e, quando ti serve, la possibilità di farmi
+    una domanda sul tuo caso.</p>
+    <p>Per qualsiasi dubbio scrivimi a
+    <a href="mailto:danimarchizziamoci@gmail.com">danimarchizziamoci@gmail.com</a>.</p>
+    <p>Buon viaggio verso la Danimarca! 🇩🇰<br><strong>Lucy</strong></p>
+    <button class="btn-primary" onclick="closeModal()">Inizia a leggere</button>
+  `);
+}
 
 function loadChecklistState() {
   try {
