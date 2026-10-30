@@ -3,7 +3,7 @@
 // Stripe rimanda a index.html?purchase=guide&k=<chiave>, e la chiave apre i contenuti.
 
 // Payment Link reali: lasciare '' finché non creati, poi incollare l'URL di buy.stripe.com.
-const GUIDE_PAYMENT_LINK_URL = 'https://buy.stripe.com/fZu28r8q7cYBgvB6Qacwg00';
+const GUIDE_PAYMENT_LINK_URL = 'https://buy.stripe.com/eVq14nbCj0bP4MT5M6cwg03';
 const JOBS_PAYMENT_LINK_URL = 'https://buy.stripe.com/bJeaEXgWDe2F0wD4I2cwg01';
 
 let GUIDE_KEY = null; // CryptoKey valida se la guida è sbloccata su questo dispositivo
