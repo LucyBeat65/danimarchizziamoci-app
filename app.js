@@ -156,6 +156,8 @@ async function renderSteps() {
   // Nascondi il banner di sblocco se la guida è già sbloccata
   const banner = document.getElementById('unlock-banner');
   if (banner) banner.style.display = unlocked ? 'none' : '';
+  const bannerTop = document.getElementById('unlock-banner-top');
+  if (bannerTop) bannerTop.style.display = unlocked ? 'none' : '';
   const oldNote = document.getElementById('old-unlock-note');
   if (oldNote) oldNote.style.display = (!unlocked && hadOldUnlock()) ? '' : 'none';
 
